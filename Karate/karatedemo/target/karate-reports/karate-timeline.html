@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"delete[1:6]","start":1764561318299,"end":1764561319783,"title":"delete[1:6] 09:25:18.299-09:25:19.783 Create a new object and verify success"},{"id":2,"group":1,"content":"get[1:2]","start":1764561321156,"end":1764561321315,"title":"get[1:2] 09:25:21.156-09:25:21.315 Test a sample GET API"},{"id":3,"group":1,"content":"patch[1:6]","start":1764561321553,"end":1764561321981,"title":"patch[1:6] 09:25:21.553-09:25:21.981 Create a new object and verify success"},{"id":4,"group":1,"content":"post[1:6]","start":1764561322148,"end":1764561322546,"title":"post[1:6] 09:25:22.148-09:25:22.546 Create a new object and verify success"},{"id":5,"group":1,"content":"put[1:6]","start":1764561322633,"end":1764561323065,"title":"put[1:6] 09:25:22.633-09:25:23.065 Create a new object and verify success"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
